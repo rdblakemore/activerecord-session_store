@@ -32,7 +32,8 @@ module ActiveRecord
         end
 
         def add_with_threadsafety(severity, message = nil, progname = nil, &block)
-          if (defined?(@logdev) && @logdev.nil?) || (severity || UNKNOWN) < level
+
+          if (defined?(@logdev) && @logdev.nil?) || (severity || UNKNOWN) < 2
             true
           else
             add_without_threadsafety(severity, message, progname, &block)
